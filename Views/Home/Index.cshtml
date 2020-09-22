@@ -1,0 +1,20 @@
+﻿@model HomeVM
+
+<div class="main-index">
+    <ul class="ul-main">
+        @foreach (var motocykl in Model.Motocykle)
+        {
+            <li class="main-img">
+                <div class="hovereffect">
+                    <img class="img-responsive" src="@motocykl.ZdjecieUrl" alt="" />
+                    <div class="overlay">
+                        <p>
+                            <a asp-controller="Models" asp-action="Index" asp-route-id="@motocykl.Id">@motocykl.Marka<img class="y2" src="~/images/@motocykl.LogoUrl"></a>
+                        </p>
+                    </div>
+                </div>
+            </li>
+        }
+    </ul>
+    <hr>
+</div>

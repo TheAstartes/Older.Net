@@ -1,0 +1,110 @@
+﻿<!doctype html>
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="~/content/newstyle.css">
+    <link href="https://fonts.googleapis.com/css?family=Teko:400,700" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <a asp-controller="Home" asp-action="Index"><img class="logo" src="~/images/logo-moto-2.png"></a>
+            <nav class="menu">
+                <ul>
+                    <li>
+                        <a class="menua" asp-controller="Home" asp-action="Index">Home</a>
+                    </li>
+                    <li>
+                        <a class="menua" href="#">Showroom<img src="~/images/unfold.png"></a>
+                        <ul>
+                            <li><a href="#">Terms And Conditions</a></li>
+                            <li><a href="#">Schelude a Ride</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="menua" href="#">Parts <img src="~/images/unfold.png"></a>
+                        <ul>
+                            <li><a href="#">Parts Department</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="menua" href="#">About</a>
+                    </li>
+                    <li><a class="menua" asp-controller="Opinia" asp-action="Index">Contact</a></li>
+                </ul>
+                <div class="search-container">
+                    <input type="text" name="" class="search-box" placeholder="Search" />
+                    <a class="button">
+                        <img src="~/images/searchmini.png">
+                    </a>
+                </div>
+            </nav>
+            @if (SignInManager.IsSignedIn(User))
+            {
+                <form asp-area="" asp-controller="Account" asp-action="Logout" id="logoutForm"
+                          method="post">
+                        <ul>
+                            <li class="logout-li"><a href="javascript:document.getElementById('logoutForm').submit()" class="h4">Logout</a></li>
+                        </ul>
+                    </form>
+            }
+            else
+            {
+                <a asp-controller="Account" asp-action="Login"><h4 class="h4">Login </h4></a>
+                <a asp-controller="Account" asp-action="Register"><h4 class="h4">Register</h4></a>
+            }
+        </div>
+    </header>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript">
+      $(document).ready(
+        function() {
+          $('.menu-toggle').click(function() {
+            $('nav').toggleClass('active')
+          })
+
+          $('ul li').click(function() {
+            $(this).siblings().removeClass('active');
+            $(this).toggleClass('active');
+          })
+        }
+      )
+
+    </script>
+        @RenderBody()
+    <footer>
+        <div class="container2">
+            <div class="footer-segment">
+                <div class="panel-1">
+                    <h4>CONTACT US</h4>
+                    <ul>
+                        <li><img src="~/images/phone.png"> 111.222.333.4444</li>
+                        <li><img src="~/images/mail.png"> youremail@gmail.com</li>
+                        <li><img src="~/images/adress.png"> Your Adress</li>
+                    </ul>
+                </div>
+                <div class="vl"></div>
+                <div class="panel-1">
+                    <h4>HOURS</h4>
+                    <ul>
+                        <li>Mon-Fri 10:00AM - 9:00PM</li>
+                        <li>Saturday 12:00AM - 8:00PM</li>
+                        <li>Sunday CLOSED</li>
+                    </ul>
+                </div>
+                <div class="vl"></div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
+
+<!--<button class="search-button" type="submit"><i class="i-search"></i></button>-->
+<!--<video class="background" autoplay poster="Images/wa_Moment.jpg">
+    <source src="Video/wa.mp4" type="video/mp4">
+    </video>-->

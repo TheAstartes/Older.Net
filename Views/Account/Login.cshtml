@@ -1,0 +1,31 @@
+﻿@model LoginVM
+
+<div class="main">
+    <div class="text-danger">
+        <div class="megabox">
+            <form asp-action="Login" asp-controller="Account" method="post" role="form">
+                <div class="box">
+                    <label asp-for="Username"></label>
+                    <div>
+                        <input asp-for="Username">
+                        <span class="error" asp-validation-for="Username"></span>
+                    </div>
+                </div>
+                <div class="box">
+                    <label asp-for="Password"></label>
+                    <div>
+                        <input asp-for="Password">
+                        <span class="error" asp-validation-for="Password"></span>
+                    </div>
+                </div>
+                <div class="box">
+                    <label></label>
+                    <div>
+                        <input type="submit" value="Login">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <hr>
+</div>

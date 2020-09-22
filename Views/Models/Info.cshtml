@@ -1,0 +1,116 @@
+﻿@model Motocykl
+
+<div class="main">
+    <div class="scroll"><img class="wallpap" src="~/images/@Model.Wallpaper" alt="No picture"/><a href="#down"><span></span>Scroll</a></div>
+
+    <div class="wp1">
+        <h2>@Model.Model</h2>
+    </div>
+
+    <div class="w2">
+    </div>
+
+    <div id="down" class="main-container">
+
+        <input type="radio" id="i1" name="images" checked />
+        <input type="radio" id="i2" name="images" />
+        <input type="radio" id="i3" name="images" />
+
+        <div class="slide_img" id="one">
+
+            <img src="~/images/@Model.Pic1" alt="No picture">
+
+            <label class="prev" for="i3"><span>&#x2039;</span></label>
+            <label class="next" for="i2"><span>&#x203a;</span></label>
+
+        </div>
+
+        <div class="slide_img" id="two">
+
+            <img src="~/images/@Model.Pic2" alt="No picture">
+
+            <label class="prev" for="i1"><span>&#x2039;</span></label>
+            <label class="next" for="i3"><span>&#x203a;</span></label>
+
+        </div>
+
+        <div class="slide_img" id="three">
+            <img src="~/images/@Model.Pic3" alt="No picutre"> 
+
+            <label class="prev" for="i2"><span>&#x2039;</span></label>
+            <label class="next" for="i1"><span>&#x203a;</span></label>
+        </div>
+
+
+
+        <div id="nav_slide">
+            <label for="i1" class="dots" id="dot1"></label>
+            <label for="i2" class="dots" id="dot2"></label>
+            <label for="i3" class="dots" id="dot3"></label>
+        </div>
+
+    </div>
+    <div class="text-box">
+
+        <div class="description-box">
+            <div class="slide-info" id="si1">
+                <h1 class="slide-h1"></h1>
+                <h2 class="slide-h2">About</h2>
+                <p>
+                    @Model.Opis
+                </p>
+                <h2 class="slide-h2">More</h2>
+            </div>
+            <div class="slide-specification">
+                <ul class="specification-ul">
+                    <li class="specification-li">
+                        <label>Year</label>
+                        <span>@Model.RokProdukcji</span>
+                    </li>
+                    <li class="specification-li">
+                        <label>Manufacturer</label>
+                        <span>@Model.Marka</span>
+                    </li>
+                    <li class="specification-li">
+                        <label>Model</label>
+                        <span>@Model.Model</span>
+                    <li class="specification-li">
+                        <label>Engine displacement</label>
+                        <span>@Model.Pojemnosc</span>
+                    </li>
+                    <li class="specification-li">
+                        <label>Engine Type</label>
+                        <span>@Model.RodzajSilnika</span>
+                    </li>
+                    <li class="specification-li">
+                        <label>Power</label>
+                        <span>@Model.Moc</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+$(document).ready(function(){
+  
+  $("a").on('click', function(event) {
+    if (this.hash !== "") {
+      event.preventDefault();
+
+      var hash = this.hash;
+
+      $('html, body').animate({
+        scrollTop: $(hash).offset().top
+      }, 800, function(){
+
+        window.location.hash = hash;
+      });
+    }
+  });
+});
+    </script>
+
+    <hr>
+</div>

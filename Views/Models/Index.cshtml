@@ -1,0 +1,20 @@
+﻿    @model TheShop.ViewModels.ModelVM
+
+
+    <div class="main">
+        <ul class="ul-main">
+            @foreach (var motocykl in Model.Motocykle)
+            {
+                if (motocykl.Marka == Model.MyModel)
+                {
+                <li class="main-img">
+                    <a class="main-a" asp-controller="Models" asp-action="Info" asp-route-id="@motocykl.Id">
+                        <img class="a-img" src="~/images/@motocykl.ZdjeciePrezentacja" />
+                        <h3>@motocykl.Model</h3>
+                    </a>
+                </li>
+                }
+            }
+        </ul>
+        <hr>
+    </div>

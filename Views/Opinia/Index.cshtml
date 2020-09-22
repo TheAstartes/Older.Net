@@ -1,0 +1,45 @@
+﻿@model  Opinia
+
+<div class="main">
+    <div class="text-danger">
+    <div class="megabox">
+        <form asp-action="Index" method="post" role="form"
+>
+            <div class="box">
+                <label asp-for="Username"></label>
+                <div>
+                    <input asp-for="Username">
+                    <span class="error" asp-validation-for="Username"></span>
+                </div>
+            </div>
+            <div class="box">
+                <label asp-for="Email"></label>
+                <div>
+                    <input asp-for="Email">
+                    <span class="error" asp-validation-for="Email"></span>
+                </div>
+            </div>
+            <div class="box">
+                <label asp-for="Message"></label>
+                <div>
+                    <textarea asp-for="Message" rows="4" cols="50" class="message" placeholder="..."></textarea>
+                    <span class="error" asp-validation-for="Message"></span>
+                </div>
+            </div>
+            <div class="box">
+                <label asp-for="Oczekiwanie">Expecting answer?</label>
+                <div>
+                    <input asp-for="Oczekiwanie" type="checkbox">
+                </div>
+            </div>
+            <div class="box">
+                <label></label>
+                <div>
+                    <input type="submit" value="Send">
+                </div>
+            </div>
+        </form>
+    </div>
+        </div>
+    <hr>
+</div>
